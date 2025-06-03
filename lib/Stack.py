@@ -1,25 +1,36 @@
 class Stack:
-
     def __init__(self, items = [], limit = 100):
-        pass
+        self.items = items
+        self.limit = limit
 
     def isEmpty(self):
-        pass
+         return self.items == []
 
     def push(self, item):
-        pass
-
+        if (not self.full()):
+            self.items.append(item)
+        else:return None
     def pop(self):
-        pass
-
+        if self.isEmpty():
+            return None
+        else:
+            return self.items.pop()
     def peek(self):
-        pass
-    
+       return self.items[len(self.items)]
     def size(self):
-        pass
+        if self.isEmpty():
+            return 0
+        else:
+            return len(self.items)
 
     def full(self):
-        pass
+        if len(self.items) == self.limit:
+            return True
+        else:
+            return False
 
     def search(self, target):
-        pass
+       for i in reversed(range(len(self.items))):
+           if self.items[i] == target:
+               return len(self.items)-1- i
+       return -1
